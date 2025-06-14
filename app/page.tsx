@@ -428,6 +428,29 @@ export default function CompanyProfileEditor() {
               </div>
             </CardContent>
           </Card>
+
+          <div className="flex-right justify-end space-x-3">
+            <div className="flex space-x-3 flex-shrink-0 ">
+              <Button variant="secondary" onClick={handleCancel}>
+                Cancel
+              </Button>
+              <Button
+                variant="primary"
+                onClick={handleSave}
+                loading={saveStatus === "saving"}
+                className="min-w-[120px]"
+              >
+                {saveStatus === "saved" && (
+                  <CheckCircle2 className="h-4 w-4 mr-1" />
+                )}
+                {saveStatus === "saving"
+                  ? "Saving..."
+                  : saveStatus === "saved"
+                  ? "Saved!"
+                  : "Save changes"}
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
